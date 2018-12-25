@@ -14,6 +14,7 @@ Item {
         anchors.centerIn: parent
         width: parent.width
         height: parent.height
+        radius: mp(3)
 
         color: "#eee"
 
@@ -22,7 +23,7 @@ Item {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
-            height: parent.height / 5 * 4
+            height: parent.height / 4 * 3
             anchors.topMargin: mp(2)
             anchors.bottomMargin: mp(2)
             anchors.leftMargin: mp(2)
@@ -31,17 +32,32 @@ Item {
             font.pointSize: 12
         }
 
-        Column {
-            id: column
+        Rectangle {
+            id: markersSurface
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            height: parent.height / 5
+            height: parent.height / 4
+            radius: mp(3)
 
-            MarkerTypeButton {
-                id: marker1
-                height: parent.height
-                width: height
+            ListView {
+                id: column
+                anchors.fill: parent
+                verticalLayoutDirection: Qt.Horizontal
+
+                delegate: MarkerTypeButton {
+                    id: marker1
+                    height: parent.height
+                    width: height
+                }
+
+                model: ListModel {
+                    id: markersModel
+                    ListElement {
+                        status: "checked"
+                        imgSource: ""
+                    }
+                }
             }
         }
     }
