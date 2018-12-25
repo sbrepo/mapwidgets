@@ -18,18 +18,81 @@ Item {
 
         color: "#eee"
 
-        TextInput {
-            id: textInput
+        Rectangle {
+            id: headerRect
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
-            height: parent.height / 4 * 3
+            height: parent.height / 6
+            color: "#3696de"
+
+            radius: mp(3)
+
+            Rectangle {
+                id: headBorderRect
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: parent.radius
+                color: parent.color
+            }
+
+            Text {
+                id: titleText
+                anchors.top: parent.top
+                anchors.right: crossButton.left
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.leftMargin: mp(3)
+
+                text: "Новый маркер"
+                verticalAlignment: Text.AlignVCenter
+                color: "#fff"
+                font.pointSize: 16
+            }
+
+            Rectangle {
+                id: crossButton
+                color: "#00000000"
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: parent.height
+                width: height
+
+                Image {
+                    id: crossImage
+                    anchors.centerIn: parent
+                    width: parent.width / 4 * 3
+                    height: parent.height / 4 * 3
+
+                    source: "qrc:/textures/cross.svg"
+                    sourceSize: Qt.size(width, height)
+                    smooth: true
+                }
+            }
+        }
+
+        Rectangle {
+            id: textRect
+            anchors.top: headerRect.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: markersSurface.top
             anchors.topMargin: mp(2)
             anchors.bottomMargin: mp(2)
-            anchors.leftMargin: mp(2)
-            anchors.rightMargin: mp(2)
-            text: qsTr("Description")
-            font.pointSize: 12
+
+            color: "#fff"
+
+            TextInput {
+                id: textInput
+                anchors.fill: parent
+                anchors.topMargin: mp(2)
+                anchors.bottomMargin: mp(2)
+                anchors.leftMargin: mp(2)
+                anchors.rightMargin: mp(2)
+                text: qsTr("Description")
+                font.pointSize: 12
+            }
         }
 
         Rectangle {
@@ -43,7 +106,10 @@ Item {
             ListView {
                 id: column
                 anchors.fill: parent
-                verticalLayoutDirection: Qt.Horizontal
+                anchors.leftMargin: mp(2)
+                anchors.rightMargin: mp(2)
+                orientation: ListView.Horizontal
+                clip: true
 
                 delegate: MarkerTypeButton {
                     id: marker1
@@ -55,6 +121,14 @@ Item {
                     id: markersModel
                     ListElement {
                         status: "checked"
+                        imgSource: ""
+                    }
+                    ListElement {
+                        status: "unchecked"
+                        imgSource: ""
+                    }
+                    ListElement {
+                        status: "unchecked"
                         imgSource: ""
                     }
                 }

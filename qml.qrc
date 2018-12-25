@@ -4,5 +4,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>SetMarkerOverlay.qml</file>
         <file>MarkerTypeButton.qml</file>
+        <file>textures/cross.svg</file>
     </qresource>
 </RCC>

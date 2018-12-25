@@ -13,9 +13,9 @@ Item {
 
     DropShadow {
        anchors.fill: rectangle
-       verticalOffset: mp(1)
-       radius: mp(2)
-       samples: mp(4)
+       verticalOffset: mp(0.75)
+       radius: mp(1.5)
+       samples: mp(3)
        color: "#80000000"
        source: rectangle
     }
