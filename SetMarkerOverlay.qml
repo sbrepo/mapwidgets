@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Window 2.0
+import QtQuick.Controls 2.4
 import QtGraphicalEffects 1.12
 
 Item {
@@ -83,15 +84,22 @@ Item {
 
             color: "#fff"
 
-            TextInput {
-                id: textInput
+            ScrollView {
+                id: textScroll
                 anchors.fill: parent
                 anchors.topMargin: mp(2)
                 anchors.bottomMargin: mp(2)
                 anchors.leftMargin: mp(2)
                 anchors.rightMargin: mp(2)
-                text: qsTr("Description")
-                font.pointSize: 12
+                ScrollBar.vertical.interactive: false
+                TextArea {
+                    id: textInput
+                    renderType: Text.NativeRendering
+
+                    text: qsTr("Description")
+                    font.pointSize: 12
+                    wrapMode: Text.Wrap
+                }
             }
         }
 
