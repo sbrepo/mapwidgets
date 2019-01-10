@@ -7,7 +7,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("Map")
 
-    SetMarkerOverlay {
+    MarkerViewOverlay {
         anchors.centerIn: parent
         width: 400
         height: 300

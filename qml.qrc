@@ -5,5 +5,6 @@
         <file>SetMarkerOverlay.qml</file>
         <file>MarkerTypeButton.qml</file>
         <file>textures/cross.svg</file>
+        <file>MarkerViewOverlay.qml</file>
     </qresource>
 </RCC>
