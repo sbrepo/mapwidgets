@@ -10,6 +10,17 @@ Item {
         return x * Screen.pixelDensity;
     }
 
+    DropShadow {
+       id: dropShadow
+       anchors.fill: overlaySurface
+       verticalOffset: mp(1)
+       radius: mp(2)
+       samples: mp(4)
+       color: "#80000000"
+       source: overlaySurface
+       cached: true
+    }
+
     Rectangle {
         id: overlaySurface
         anchors.centerIn: parent
@@ -17,7 +28,7 @@ Item {
         height: parent.height
         radius: mp(3)
 
-        color: "#eee"
+        color: "#ddd"
 
         Rectangle {
             id: headerRect
@@ -49,6 +60,7 @@ Item {
                 text: "Новый маркер"
                 verticalAlignment: Text.AlignVCenter
                 color: "#fff"
+                font.family: "SF UI Text"
                 font.pointSize: 16
             }
 
@@ -80,13 +92,13 @@ Item {
             anchors.right: parent.right
             anchors.bottom: markersSurface.top
             anchors.topMargin: mp(2)
-            anchors.bottomMargin: mp(2)
+            anchors.bottomMargin: mp(4)
 
             color: "#fff"
 
             ScrollView {
                 id: textScroll
-                anchors.fill: parent
+                anchors.fill: textRect
                 anchors.topMargin: mp(2)
                 anchors.bottomMargin: mp(2)
                 anchors.leftMargin: mp(2)
@@ -96,9 +108,13 @@ Item {
                     id: textInput
                     renderType: Text.NativeRendering
 
-                    text: qsTr("Description")
+                    placeholderText: qsTr("Добавте описание...")
+                    font.family: "SF UI Text"
                     font.pointSize: 12
                     wrapMode: Text.Wrap
+
+                    selectByKeyboard: true
+                    selectByMouse: true
                 }
             }
         }
@@ -143,14 +159,4 @@ Item {
             }
         }
     }
-
-    DropShadow {
-       anchors.fill: overlaySurface
-       verticalOffset: mp(1)
-       radius: mp(2)
-       samples: mp(4)
-       color: "#80000000"
-       source: overlaySurface
-    }
-
 }
