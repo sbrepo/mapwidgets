@@ -5,7 +5,6 @@
         <file>SetMarkerOverlay.qml</file>
         <file>MarkerTypeButton.qml</file>
         <file>textures/cross.svg</file>
-<<<<<<< HEAD
         <file>fonts/SF-UI-Display-Black.ttf</file>
         <file>fonts/SF-UI-Display-Bold.ttf</file>
         <file>fonts/SF-UI-Display-Heavy.ttf</file>
@@ -27,8 +26,6 @@
         <file>fonts/SF-UI-Text-Regular.ttf</file>
         <file>fonts/SF-UI-Text-Semibold.ttf</file>
         <file>fonts/SF-UI-Text-SemiboldItalic.ttf</file>
-=======
         <file>MarkerViewOverlay.qml</file>
->>>>>>> 70ec408582d65f7c45439cdb1fe0a2447cbf6eaa
     </qresource>
 </RCC>
